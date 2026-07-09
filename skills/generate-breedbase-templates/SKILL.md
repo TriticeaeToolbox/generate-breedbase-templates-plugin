@@ -11,43 +11,6 @@ This skill is used to reformat spreadsheet files (Excel or CSV files) that conta
 2) **trials** = metadata about the trials to observe the germplasm and the plots within the trials
 3) **observations** = data from the trait observations recorded in each plot.
 
-## Training Documentation
-
-The `references/` directory contains comprehensive training documentation based on analysis of all sample datasets:
-
-### [training-guide.md](references/training-guide.md)
-**Complete implementation reference** covering:
-- Three output templates (accessions, trials, observations) detailed specifications
-- Five input format patterns with parsing strategies for each
-- Complete unit conversion reference table with formulas
-- Trait ontology matching guide with 30+ common trait mappings
-- Step-by-step implementation workflow from parsing to export
-- Validation checks, common issues, and solutions
-
-**Use this for**: Complete implementation reference, understanding conversion formulas, trait ontology lookups
-
-### [sample-analysis.md](references/sample-analysis.md)
-**Detailed input→output transformations** for all 5 sample datasets:
-- **Sample 1 (UWOYT)**: Multi-sheet Excel with location-specific data - shows how to parse location sheets and extract pedigrees from overall sheets
-- **Sample 2 (SDS)**: Multiple files (one per location) - demonstrates handling multi-file inputs with Cover + data sheets
-- **Sample 3 (UEOPN)**: Pre-structured CSV format - example of already-standardized data with 21 quality traits
-- **Sample 4 (Davis)**: Simple single-sheet format - basic table structure with date conversions
-- **Sample 5 (EON)**: Multi-rep structure with pedigrees - complex multi-row headers and replicate handling
-
-Each sample includes: input structure breakdown, output examples, specific conversions applied, and key patterns.
-
-**Use this for**: Understanding how different input formats map to outputs, seeing real conversion examples
-
-### [quick-reference.md](references/quick-reference.md)
-**Concise cheat sheet** with:
-- Critical conversion factors
-- Most common trait ontology IDs
-- Naming patterns for trials and plots
-- Resource file locations
-- Workflow summary
-
-**Use this for**: Quick lookups during implementation, reference for common conversions and IDs
-
 ## Assets
 
 The `assets` directory contains resources that you can use to learn how to generate the breedbase upload templates, such as:
@@ -85,6 +48,8 @@ Always include pedigree information when available - often a Purdy pedigree stri
 ## Trials Upload Template
 
 The `trial_name` should include an experiment code (or breeding program abbreviation), year, and town name from the location in the format "experiment_year_location" (each component separated by a '_' with no spaces).  If you don't know the experiment code, ask the user to provide one.  For example, a Mississippi Valley Barley Nursery trial from 2018 with a location of Fargo, ND should have the trial_name set to "MVBN_2018_Fargo".
+
+Every trial needs to have the `location` column set.  The format of the location should always be "Town, ST" (where ST is the state or Canadian province abbreviation).  For example, "Fargo, ND" or "Brandon, MB".
 
 The `plot_name` should include the `trial_name` and the `plot_number` in the format of "trial_name-PLOT_plot_number".  For example, plot 101 from trial MVBN_2018_Fargo should have the plot_name "MVBN_2018_Fargo-PLOT_101".
 
