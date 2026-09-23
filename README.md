@@ -20,6 +20,7 @@ claude plugin install generate-breedbase-templates@t3-marketplace
 2) Change to the directory ( `cd ~/data/` )
 3) Start claude code in that directory ( `claude` )
 4) Use the `/generate-breedbase-templates` command to run the skill.
+5) Use the `/verify-breedbase-templates` command to run a check on generated breedbase templates against the original data.
 
 ## Output
 
