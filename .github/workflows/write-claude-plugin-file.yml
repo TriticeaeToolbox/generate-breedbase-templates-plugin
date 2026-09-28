@@ -24,3 +24,11 @@ jobs:
         with:
           json: '{"name": "generate-breedbase-templates", "version": "${{ github.ref_name }}", "description": "This plugin contains a skill that can be used to transform breeder data into standardized breedbase upload templates", "author": { "name": "David Waring", "email": "<djw64@cornell.edu>", "url": "https://github.com/dwaring87" }, "repository": "https://github.com/TriticeaeToolbox/generate-breedbase-templates-plugin"}'
           filename: '.claude-plugin/plugin.json'
+
+      - name: Commit & Push
+        uses: Andro999b/push@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true
+          message: 'Update claude plugin version - ${{ github.ref_name }}'
