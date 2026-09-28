@@ -14,9 +14,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+
+      - name: Create dir
+        run: |
+          mkdir -p .claude-plugin
       
       - name: Write Claude Plugin File
         uses: devops-actions/json-to-file@v1.0.0
         with:
-          json: '{"name": "generate-breedbase-templates", "version": "${{ github.ref }}", "description": "This plugin contains a skill that can be used to transform breeder data into standardized breedbase upload templates", "author": { "name": "David Waring", "email": "<djw64@cornell.edu>", "url": "https://github.com/dwaring87" }, "repository": "https://github.com/TriticeaeToolbox/generate-breedbase-templates-plugin"}'
+          json: '{"name": "generate-breedbase-templates", "version": "${{ github.ref_name }}", "description": "This plugin contains a skill that can be used to transform breeder data into standardized breedbase upload templates", "author": { "name": "David Waring", "email": "<djw64@cornell.edu>", "url": "https://github.com/dwaring87" }, "repository": "https://github.com/TriticeaeToolbox/generate-breedbase-templates-plugin"}'
           filename: '.claude-plugin/plugin.json'
